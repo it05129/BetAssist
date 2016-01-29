@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BetStatsAssistDB" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\user\Documents\Visual Studio 2015\Projects\BetStatsAssistWeb\BetStatsAssistWeb\App_Data\BetStatsAssistDB.mdf&quot;;Integrated Security=True" SettingsObjectName="BetStatsAssist.Properties.Settings" SettingsPropertyName="BetStatsAssistDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.FIXTURES" Member="FIXTUREs">
+    <Type Name="FIXTURE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="API_FIXTURE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FIX_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LEAGUE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LEAGUE_ROUND" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_TEAM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_CORNERS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_GOALS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HALFTIME_H_GOALS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_SHOTS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_SHOTS_ON_T" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_FOULS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_Y_CARDS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="H_R_CARDS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A_TEAM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A_CORNERS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A_GOALS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HALFTIME_A_GOALS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A_SHOTS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A_SHOTS_ON_T" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A_FOULS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AWAY_Y_CARDS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AWAY_R_CARDS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TEAM_LEAGUE_STATS" Member="TEAM_LEAGUE_STATs">
+    <Type Name="TEAM_LEAGUE_STAT">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEAM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAGUE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FORM_AVER_G_FOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FORM_AVER_G_AG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_G_FOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_G_AG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FORM_AVER_HOME_G_FOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FORM_AVER_HOME_G_AG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FORM_AVER_AWAY_G_FOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FORM_AVER_AWAY_G_AG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_HOME_G_FOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_HOME_G_AG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_AWAY_G_FOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_AWAY_G_AG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FORM_GG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOT_GG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FORM_OVER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOT_OVER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FORM_AVER_CARDS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_CARDS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_R_CARDS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FORM_AVER_SHOTS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FORM_AVER_SHOTS_ON_T" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_SHOTS" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOT_AVER_SHOTS_ON_T" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TEAMS" Member="TEAMs">
+    <Type Name="TEAM">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="API_TEAM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEAM_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="COUNTRY" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="STADIUM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LEAGUES" Member="LEAGUEs">
+    <Type Name="LEAGUE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="API_LEAGUE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SEASON" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LATEST_MATCH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="COUNTRY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LEAGUE_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

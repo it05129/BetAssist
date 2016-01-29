@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server (Microsoft) - @localhost" uuid="3e2bce49-ebc5-478b-b59b-d3ffd386ce6a">
+      <secret-storage>master_key</secret-storage>
+    </data-source>
+  </component>
+</project>
