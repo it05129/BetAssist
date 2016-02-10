@@ -22,7 +22,7 @@ namespace BetStatsAssist.DataAdapters
                 connectionString:
                     "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\user\\Documents\\Visual Studio 2015\\Projects\\BetStatsAssistWeb\\BetStatsAssistWeb\\App_Data\\BetStatsAssistDB.mdf;Integrated Security=True");
 
-        public void InsertTeamsLeagueStats(List<TEAM_LEAGUE_STAT> teamsStats)
+        public void InsertTeamsLeagueStatsCommand(List<TEAM_LEAGUE_STAT> teamsStats)
         {
 
             Db.TEAM_LEAGUE_STATs.InsertAllOnSubmit(teamsStats);

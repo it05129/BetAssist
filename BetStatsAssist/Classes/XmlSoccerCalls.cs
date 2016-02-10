@@ -60,9 +60,41 @@ namespace BetStatsAssist.Classes
 
         }
 
+        public void GetNextFixturesByDate(string leagueId, string dateFrom, string dateTo)
+        {
+            var endpoint = new EndpointAddress(new Uri(baseUrl));
+            var binding = new BasicHttpBinding { Name = "FootballDataSoap" };
+
+            binding.MaxReceivedMessageSize = Int32.MaxValue;
+
+            var serviceClient = new FootballDataDemoSoapClient(binding, endpoint);
+
+            serviceClient.GetFixturesByDateIntervalAndLeague(leagueId, ApiKey, dateFrom, dateTo);
+
+
+        }
+
 
         public void GetHistoricFixtureByDate()
         {
+
+
+            var lastFixture = SelectDataCommands.GetHistoricFixByLeagueId(3).OrderByDescending(f => f.FIX_DATE).Take(1).ToList();
+            var lastFixtureDate = new DateTime();
+            if (lastFixture.Count > 0)
+            {
+                var fixDate = lastFixture[0].FIX_DATE;
+                
+                if (fixDate != null)
+                {
+                    lastFixtureDate = (DateTime)fixDate.Value;
+                }
+            }
+            else
+            {
+                lastFixtureDate = DateTime.Now.AddYears(-1);
+            }
+
 
             var fixs = SelectDataCommands.GetHistoricFixByLeagueId(3);
 
@@ -73,14 +105,18 @@ namespace BetStatsAssist.Classes
 
             var serviceClient = new FootballDataDemoSoapClient(binding, endpoint);
 
-            var serviceResult = serviceClient.GetHistoricMatchesByLeagueAndDateInterval(ApiKey, "3", "2015-07-30", "2016-01-15");
+            var serviceResult = serviceClient.GetHistoricMatchesByLeagueAndDateInterval(ApiKey, "3", lastFixtureDate.ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"));
 
-            var Fixtures = D.HistoricFixtures(serviceResult.OuterXml, 3);
+            var serviceResult2 = serviceClient.GetFixturesByDateIntervalAndLeague("3", ApiKey, DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), DateTime.Now.AddDays(6).ToString("yyyy-MM-dd"));
+
+            var fixtures = D.HistoricFixtures(serviceResult.OuterXml, 3, true);
+            var nextFixtures = D.HistoricFixtures(serviceResult2.OuterXml, 3, false);
+
 
 
             
-            DataCommands.InsertFixturesCommand(Fixtures);
-
+            DataCommands.InsertFixturesCommand(fixtures);
+            DataCommands.InsertFixturesCommand(nextFixtures);
         }
     }
 }

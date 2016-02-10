@@ -85,7 +85,7 @@ namespace BetStatsAssist.Classes
             return teams;
         }
 
-        public List<FIXTURE> HistoricFixtures(string xml, int leagueId)
+        public List<FIXTURE> HistoricFixtures(string xml, int leagueId, bool isfinished)
         {
             var fixtures = new List<FIXTURE>();
             var fixtureNodes = new List<XmlNode>();
@@ -99,41 +99,64 @@ namespace BetStatsAssist.Classes
                 if (nodelist[i].Name == "Match") { fixtureNodes.Add(nodelist[i]); }
             }
 
-
-
-            foreach (var node in fixtureNodes)
+            if (isfinished)
             {
-
-                var nodeEl = XElement.Parse(node.OuterXml);
-
-                var tempFixture = new FIXTURE()
+                foreach (var node in fixtureNodes)
                 {
-                    API_FIXTURE_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='FixtureMatch_Id']").Value),
-                    FIX_DATE = DateTime.Parse(nodeEl.XPathSelectElement("//*[local-name()='Date']").Value),
-                    LEAGUE_ID = leagueId,
-                    LEAGUE_ROUND = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='Round']").Value),
-                    H_TEAM_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeTeam_Id']").Value),
-                    H_CORNERS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeCorners']").Value),
-                    H_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeGoals']").Value),
-                    HALFTIME_H_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HalfTimeHomeGoals']").Value),
-                    H_SHOTS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeShots']").Value),
-                    H_SHOTS_ON_T = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeShotsOnTarget']").Value),
-                    H_FOULS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeFouls']").Value),
-                    H_Y_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeYellowCards']").Value),
-                    H_R_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeRedCards']").Value),
-                    A_TEAM_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayTeam_Id']").Value),
-                    A_CORNERS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayCorners']").Value),
-                    A_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayGoals']").Value),
-                    HALFTIME_A_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HalfTimeAwayGoals']").Value),
-                    A_SHOTS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayShots']").Value),
-                    A_SHOTS_ON_T = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayShotsOnTarget']").Value),
-                    A_FOULS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayFouls']").Value),
-                    AWAY_Y_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayYellowCards']").Value),
-                    AWAY_R_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayRedCards']").Value)
-                };
 
-                fixtures.Add(tempFixture);
+                    var nodeEl = XElement.Parse(node.OuterXml);
+
+                    var tempFixture = new FIXTURE()
+                    {
+                        API_FIXTURE_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='FixtureMatch_Id']").Value),
+                        FIX_DATE = DateTime.Parse(nodeEl.XPathSelectElement("//*[local-name()='Date']").Value),
+                        LEAGUE_ID = leagueId,
+                        LEAGUE_ROUND = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='Round']").Value),
+                        H_TEAM_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeTeam_Id']").Value),
+                        H_CORNERS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeCorners']").Value),
+                        H_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeGoals']").Value),
+                        HALFTIME_H_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HalfTimeHomeGoals']").Value),
+                        H_SHOTS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeShots']").Value),
+                        H_SHOTS_ON_T = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeShotsOnTarget']").Value),
+                        H_FOULS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeFouls']").Value),
+                        H_Y_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeYellowCards']").Value),
+                        H_R_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeRedCards']").Value),
+                        A_TEAM_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayTeam_Id']").Value),
+                        A_CORNERS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayCorners']").Value),
+                        A_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayGoals']").Value),
+                        HALFTIME_A_GOALS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HalfTimeAwayGoals']").Value),
+                        A_SHOTS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayShots']").Value),
+                        A_SHOTS_ON_T = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayShotsOnTarget']").Value),
+                        A_FOULS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayFouls']").Value),
+                        AWAY_Y_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayYellowCards']").Value),
+                        AWAY_R_CARDS = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayRedCards']").Value)
+                    };
+
+                    fixtures.Add(tempFixture);
+                }
             }
+            else
+            {
+                foreach (var node in fixtureNodes)
+                {
+
+                    var nodeEl = XElement.Parse(node.OuterXml);
+
+                    var tempFixture = new FIXTURE()
+                    {
+                        API_FIXTURE_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='Id']").Value),
+                        FIX_DATE = DateTime.Parse(nodeEl.XPathSelectElement("//*[local-name()='Date']").Value),
+                        LEAGUE_ID = leagueId,
+                        LEAGUE_ROUND = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='Round']").Value),
+                        H_TEAM_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='HomeTeam_Id']").Value),
+                        A_TEAM_ID = Convert.ToInt32(nodeEl.XPathSelectElement("//*[local-name()='AwayTeam_Id']").Value)
+                    };
+
+                    fixtures.Add(tempFixture);
+                }
+            }
+
+            
 
 
             return fixtures;
