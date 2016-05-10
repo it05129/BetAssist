@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BetStatsAssist.Classes;
+using BetStatsAssist.DataAdapters;
+using BetStatsAssistWeb.Models;
 
 namespace BetStatsAssistWeb.Controllers
 {
@@ -15,9 +18,12 @@ namespace BetStatsAssistWeb.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            //ViewBag.Message = "Your application description page.";
+            var dbAdapter = new SelectCommands();
+            
+            var leagues = dbAdapter.GetAllLeagues();
 
-            return View();
+            return View(leagues);
         }
 
         public ActionResult Contact()

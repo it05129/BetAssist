@@ -33,6 +33,15 @@ namespace BetStatsAssist.DataAdapters
             var q = from t in teams select t;
 
             return q.ToList();
-        }  
+        }
+
+        public List<LEAGUE> GetAllLeagues()
+        {
+            var leagues = Db.GetTable<LEAGUE>();
+
+            var q = from t in leagues select t;
+
+            return q.ToList();
+        }
     }
 }

@@ -169,13 +169,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FixtureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UpdateDbController.cs" />
+    <Compile Include="DataAccessLayer\BetStatsAssistDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BusinessLayer.cs" />
+    <Compile Include="Models\FixtureListViewModel.cs" />
+    <Compile Include="Models\FixtureViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,6 +246,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\FixtureResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BetStatsAssist\BetStatsAssist.csproj">
@@ -257,6 +263,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DataAdapters\" />
+    <Folder Include="Views\Fixture\" />
     <Folder Include="Views\UpdateDb\" />
   </ItemGroup>
   <ItemGroup>

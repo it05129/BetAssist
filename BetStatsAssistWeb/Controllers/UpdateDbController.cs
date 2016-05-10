@@ -20,5 +20,8 @@ namespace BetStatsAssistWeb.Controllers
             call.GetHistoricFixtureByDate();
             //return View();
         }
+
+
+       
     }
 }

@@ -1,7 +1,27 @@
-﻿@{
+﻿
+@model IEnumerable<BetStatsAssist.Classes.LEAGUE>
+
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <div class="navbar-collapse collapse">
+        
+        <ul class="nav navbar-nav">
+            @*<!--<li>@Html.ActionLink("Home", "Index", "Home")</li>-->*@
+            @foreach (var league in Model)
+            {
+                <li>@Html.ActionLink(league.LEAGUE_NAME, "Index", "Home")</li>
+            }
+            
+        </ul>
+    </div>
+</head>
+<body>
+   
+</body>
+</html>
