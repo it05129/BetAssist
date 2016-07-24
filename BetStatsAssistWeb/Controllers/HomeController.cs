@@ -16,15 +16,7 @@ namespace BetStatsAssistWeb.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            //ViewBag.Message = "Your application description page.";
-            var dbAdapter = new SelectCommands();
-            
-            var leagues = dbAdapter.GetAllLeagues();
-
-            return View(leagues);
-        }
+        
 
         public ActionResult Contact()
         {
@@ -32,5 +24,7 @@ namespace BetStatsAssistWeb.Controllers
 
             return View();
         }
+
+        
     }
 }

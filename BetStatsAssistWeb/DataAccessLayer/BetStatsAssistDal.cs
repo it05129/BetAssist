@@ -17,5 +17,7 @@ namespace BetStatsAssistWeb.DataAccessLayer
             modelBuilder.Entity<LEAGUE>().ToTable("LEAGUES");
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<BetStatsAssist.Classes.FIXTURE> FIXTUREs { get; set; }
     }
 }

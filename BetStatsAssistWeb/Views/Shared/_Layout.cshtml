@@ -22,14 +22,14 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Fixtures")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
     </div>
 </div>
-    <div class="form-group">
+    <div class="form-group" >
         <div class="col-md-offset-2 col-md-10">
             <input class="alert-warning" type="submit" value="Insert Db test" onclick="location.href='@Url.Action("UpdateDb", "UpdateDb")'" class="btn btn-default" />
         </div>
@@ -46,4 +46,4 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-</html>
+</html> 

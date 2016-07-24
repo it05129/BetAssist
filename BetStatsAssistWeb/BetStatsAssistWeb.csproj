@@ -169,7 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FixtureController.cs" />
+    <Compile Include="Controllers\FixturesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UpdateDbController.cs" />
@@ -182,6 +182,7 @@
     <Compile Include="Models\FixtureListViewModel.cs" />
     <Compile Include="Models\FixtureViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LeaguesModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -223,7 +224,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -247,6 +247,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\FixtureResult.cshtml" />
+    <Content Include="Views\Fixtures\About.cshtml" />
+    <Content Include="Views\Fixtures\_Fixtures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BetStatsAssist\BetStatsAssist.csproj">
@@ -264,7 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAdapters\" />
-    <Folder Include="Views\Fixture\" />
     <Folder Include="Views\UpdateDb\" />
   </ItemGroup>
   <ItemGroup>
