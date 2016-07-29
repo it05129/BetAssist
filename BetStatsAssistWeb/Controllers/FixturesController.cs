@@ -39,7 +39,7 @@ namespace BetStatsAssistWeb.Controllers
             };
             
 
-            return View("About", leagues);
+            return View(leagues);
         }
 
         public ActionResult Fixtures(Int32 id)
@@ -68,7 +68,7 @@ namespace BetStatsAssistWeb.Controllers
                 fixtures.Add(tempFixture);
             }
 
-            return View("_Fixtures", fixtures);
+            return View("_Fixtures",fixtures);
             
         }
     }
