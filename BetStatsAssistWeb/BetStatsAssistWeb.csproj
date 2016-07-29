@@ -249,6 +249,7 @@
     <Content Include="Views\Shared\FixtureResult.cshtml" />
     <Content Include="Views\Fixtures\About.cshtml" />
     <Content Include="Views\Fixtures\_Fixtures.cshtml" />
+    <Content Include="Views\Shared\_statsBookLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BetStatsAssist\BetStatsAssist.csproj">
