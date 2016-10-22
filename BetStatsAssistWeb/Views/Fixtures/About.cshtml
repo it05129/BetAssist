@@ -1,6 +1,6 @@
 ﻿
 @model BetStatsAssistWeb.Models.LeaguesModel
-@model BetStatsAssistWeb.Models.FixtureViewModels
+
 
 <div class="list-group">
     <nav class="navbar navbar-inverse">
@@ -11,7 +11,7 @@
             <ul class="nav navbar-nav">
                 @foreach (var league in Model.Leagues.ToList())
                 {
-                    <li>@Html.ActionLink(league.LEAGUE_NAME, "Fixtures", new { id = league.API_LEAGUE_ID })</li>
+                    <li>@Html.ActionLink(league.LEAGUE_NAME, "About", new { id = league.API_LEAGUE_ID })</li>
                 }
             </ul>
         </div>
@@ -20,9 +20,9 @@
         <div>
 
             <ul class="list-group-item navbar-left">
-                @foreach (var fixture in Model)
+                @foreach (var fixture in Model.Fixtures.ToList())
             {
-                    <li>@Html.ActionLink(fixture.FixDate + ", " + fixture.HomeTeam + " - " + fixture.AwayTeam, "Fixtures", new { id = "3" })</li>
+                    <li>@Html.ActionLink(fixture.FixDate + ", " + fixture.HomeTeam + " - " + fixture.AwayTeam, "About", new { id = "3" })</li>
                 }
             </ul>
 

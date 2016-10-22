@@ -29,13 +29,26 @@ namespace BetStatsAssistWeb.Controllers
             var dbAdapter = new SelectCommands();
 
             var _leagues = dbAdapter.GetAllLeagues();
+            
+            var _fixtures = dbAdapter.GetHistoricFixByLeagueId(3);
+
+            var teams = dbAdapter.GetAllTeams();
+            if (!_fixtures.Any())
+                return HttpNotFound();
+
+            var fixtures = _fixtures.Where(f => f.H_SHOTS == null).Select(fixture => new FixtureViewModels()
+            {
+                HomeTeam = teams.FirstOrDefault(team => team.API_TEAM_ID == Convert.ToInt32(fixture.H_TEAM_ID))?.TEAM_NAME, AwayTeam = teams.FirstOrDefault(team => team.API_TEAM_ID == Convert.ToInt32(fixture.A_TEAM_ID))?.TEAM_NAME, FixDate = fixture.FIX_DATE.ToString()
+            }).ToList();
 
             if (!_leagues.Any())
                 return HttpNotFound();
 
             var leagues = new LeaguesModel()
             {
-                Leagues = _leagues
+                //SelectedLeagueId = "3",
+                Leagues = _leagues,
+                Fixtures = fixtures
             };
             
 

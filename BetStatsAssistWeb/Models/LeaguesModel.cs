@@ -11,7 +11,9 @@ namespace BetStatsAssistWeb.Models
         public LEAGUE SelectedLeague { get; set; }
         public string SelectedLeagueId { get; set; }
 
-        public List<LEAGUE> Leagues { get; set; } 
+        public List<LEAGUE> Leagues { get; set; }
+
+        public List<FixtureViewModels> Fixtures { get; set; }
 
     }
 }
